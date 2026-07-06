@@ -37,13 +37,10 @@ Everything degrades gracefully under `prefers-reduced-motion` and on touch devic
 
 Just open `index.html` in a browser — no server needed.
 
-## Deploying to GitHub Pages
+## Live site
 
-1. Create a new repository on GitHub (for a `username.github.io` URL, name it exactly `yourusername.github.io`; otherwise any name works and the site lives at `yourusername.github.io/repo-name`).
-2. Push this folder:
-   ```
-   git remote add origin https://github.com/yourusername/your-repo.git
-   git push -u origin main
-   ```
-3. On GitHub: **Settings → Pages → Source: Deploy from a branch → Branch: `main` / `/ (root)` → Save**.
-4. Your site goes live at the URL shown on that Pages settings screen within a minute or two.
+**https://yashtaylor.github.io/portfolio/** — deployed with GitHub Pages from the `main` branch root. Every push to `main` redeploys automatically within a minute or two:
+
+```
+git add -A && git commit -m "your change" && git push
+```
