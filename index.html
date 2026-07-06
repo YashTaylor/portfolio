@@ -5,71 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yash Tailor — Android Developer</title>
   <meta name="description" content="Yash Tailor — Android Developer from Navi Mumbai building Kotlin apps with 100k+ downloads, hardware integrations, and clean architecture.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Cursor spotlight (desktop only) -->
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+
+  <!-- Scroll progress bar -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
   <!-- ===== Navigation ===== -->
-  <header class="nav" id="top">
+  <header class="nav" id="nav">
     <div class="nav__inner container">
-      <a href="#top" class="nav__logo">Yash<span class="accent">.</span></a>
+      <a href="#top" class="nav__logo mono">&lt;YT /&gt;</a>
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav__menu" id="nav-menu">
-        <a href="#about" class="nav__link">About</a>
-        <a href="#projects" class="nav__link">Projects</a>
-        <a href="#skills" class="nav__link">Skills</a>
-        <a href="#contact" class="nav__link">Contact</a>
+        <a href="#about" class="nav__link"><span class="mono accent">01.</span> About</a>
+        <a href="#projects" class="nav__link"><span class="mono accent">02.</span> Projects</a>
+        <a href="#skills" class="nav__link"><span class="mono accent">03.</span> Skills</a>
+        <a href="#contact" class="nav__link"><span class="mono accent">04.</span> Contact</a>
+        <a href="assets/resume.pdf" class="btn btn--ghost btn--sm" download="Resume_YashTailor.pdf">Resume</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="top">
 
     <!-- ===== Hero ===== -->
-    <section class="hero container">
-      <div class="hero__content">
-        <p class="hero__eyebrow">Hi, my name is</p>
-        <h1 class="hero__title">Yash Tailor<span class="accent">.</span></h1>
-        <h2 class="hero__subtitle">I build Android apps people rely on.</h2>
-        <p class="hero__text">Android Developer from Navi Mumbai with apps at 100k+ downloads and a 4.5+ Play Store rating. I own the full development lifecycle — from API and hardware integrations to release management.</p>
-        <div class="hero__actions">
-          <a href="#projects" class="btn btn--primary">View Projects</a>
-          <a href="#contact" class="btn btn--ghost">Contact Me</a>
+    <section class="hero">
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__content">
+          <p class="hero__eyebrow mono">Hi, my name is</p>
+          <h1 class="hero__title">Yash Tailor<span class="accent">.</span></h1>
+          <h2 class="hero__subtitle">I'm <span class="typed accent" id="typed">an Android Developer</span><span class="caret" aria-hidden="true"></span></h2>
+          <p class="hero__text">Android Developer from Navi Mumbai. I own the full development lifecycle — from API and hardware integrations to release management — and build apps people rely on every day.</p>
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="#contact" class="btn btn--ghost">Contact Me</a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat">
+              <span class="stat__num mono" data-count="100" data-suffix="k+">0</span>
+              <span class="stat__label">Downloads</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num mono" data-count="4.5" data-decimals="1" data-suffix="★">0</span>
+              <span class="stat__label">Play Store Rating</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num mono" data-count="3">0</span>
+              <span class="stat__label">Production Apps</span>
+            </div>
+          </div>
         </div>
       </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll to About section">
+        <span class="hero__mouse" aria-hidden="true"></span>
+      </a>
     </section>
 
     <!-- ===== About ===== -->
     <section class="section container" id="about">
-      <h2 class="section__title"><span class="section__number">01.</span> About Me</h2>
+      <h2 class="section__title reveal"><span class="section__number mono">01.</span> About Me</h2>
       <div class="about">
-        <div class="about__text">
-          <p>I'm an Android Developer currently at Adhyay Infotech, where I develop and maintain a suite of three production apps — Mobile Dairy, MD Customer, and MD Tracker — used by over 100,000 people. I take complete ownership of the Android lifecycle: API integration, hardware integrations, testing, deployment, and release management.</p>
+        <div class="about__text reveal">
+          <p>I'm an Android Developer currently at <a href="#" class="inline-link">Adhyay Infotech</a>, where I develop and maintain a suite of three production apps — Mobile Dairy, MD Customer, and MD Tracker — used by over 100,000 people. I take complete ownership of the Android lifecycle: API integration, hardware integrations, testing, deployment, and release management.</p>
           <p>Beyond the code, I work directly with clients to understand their needs and collaborate with my manager and product team to shape features. I got my start building scanner-device applications for logistics and port clients like Adani, JSW, and Coromandel, which gave me hands-on experience integrating Android with real-world hardware.</p>
+          <p>A few technologies I work with daily:</p>
+          <ul class="about__list mono">
+            <li>Kotlin</li>
+            <li>Jetpack Compose</li>
+            <li>MVVM &amp; Clean Architecture</li>
+            <li>Retrofit &amp; Coroutines</li>
+            <li>Firebase</li>
+            <li>Zebra SDK</li>
+          </ul>
         </div>
-        <div class="about__photo">
+        <div class="about__photo reveal">
           <!-- TODO: Replace with your photo: <img src="assets/photo.jpg" alt="Yash Tailor"> -->
-          <div class="about__photo-placeholder" aria-hidden="true">YT</div>
+          <div class="about__photo-frame">
+            <div class="about__photo-placeholder" aria-hidden="true">YT</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ===== Projects ===== -->
     <section class="section container" id="projects">
-      <h2 class="section__title"><span class="section__number">02.</span> Projects</h2>
+      <h2 class="section__title reveal"><span class="section__number mono">02.</span> Projects</h2>
       <div class="projects">
 
-        <article class="card">
+        <article class="card reveal" data-tilt>
           <div class="card__image" aria-hidden="true">
             <!-- TODO: Replace with a screenshot: <img src="assets/mobile-dairy.png" alt="Mobile Dairy app screenshot"> -->
             <span>🥛</span>
           </div>
           <div class="card__body">
-            <h3 class="card__title">Mobile Dairy Suite</h3>
-            <p class="card__desc">A suite of three production apps — Mobile Dairy, MD Customer, and MD Tracker — with 100k+ downloads and a 4.5+ average Play Store rating. I own the full lifecycle: API and hardware integrations, crash analysis, testing, and release management.</p>
-            <ul class="card__tags">
+            <div class="card__top">
+              <h3 class="card__title">Mobile Dairy Suite</h3>
+              <span class="card__badge mono">100k+ installs</span>
+            </div>
+            <p class="card__desc">A suite of three production apps — Mobile Dairy, MD Customer, and MD Tracker — with a 4.5+ average Play Store rating. I own the full lifecycle: API and hardware integrations, crash analysis, testing, and release management.</p>
+            <ul class="card__tags mono">
               <li>Kotlin</li>
               <li>MVVM</li>
               <li>Retrofit</li>
@@ -77,17 +123,20 @@
             </ul>
             <div class="card__links">
               <!-- TODO: Add the Play Store link for Mobile Dairy -->
-              <a href="#" class="card__link">Play Store</a>
+              <a href="#" class="card__link">Play Store →</a>
             </div>
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal" data-tilt>
           <div class="card__image" aria-hidden="true"><span>☀️</span></div>
           <div class="card__body">
-            <h3 class="card__title">Adani Solar Inspection</h3>
+            <div class="card__top">
+              <h3 class="card__title">Adani Solar Inspection</h3>
+              <span class="card__badge mono">−10% errors</span>
+            </div>
             <p class="card__desc">Barcode-scanning app for solar panel inspections built with the Zebra SDK, cutting inspection errors by 10%. Integrated with Adani Solar's backend and works fully offline for 24/7 field use.</p>
-            <ul class="card__tags">
+            <ul class="card__tags mono">
               <li>Java</li>
               <li>Zebra SDK</li>
               <li>SQLite</li>
@@ -96,12 +145,14 @@
           </div>
         </article>
 
-        <article class="card">
+        <article class="card reveal" data-tilt>
           <div class="card__image" aria-hidden="true"><span>💸</span></div>
           <div class="card__body">
-            <h3 class="card__title">Expense Tracker</h3>
+            <div class="card__top">
+              <h3 class="card__title">Expense Tracker</h3>
+            </div>
             <p class="card__desc">A modern expense tracking app with a responsive Jetpack Compose UI, Room database for persistent local storage, and Dagger-Hilt dependency injection for a clean, scalable architecture.</p>
-            <ul class="card__tags">
+            <ul class="card__tags mono">
               <li>Kotlin</li>
               <li>Jetpack Compose</li>
               <li>Room</li>
@@ -109,7 +160,7 @@
             </ul>
             <div class="card__links">
               <!-- TODO: Add the GitHub repo link for Expense Tracker -->
-              <a href="https://github.com/YashTaylor" class="card__link">GitHub</a>
+              <a href="https://github.com/YashTaylor" class="card__link" target="_blank" rel="noopener">GitHub →</a>
             </div>
           </div>
         </article>
@@ -119,20 +170,20 @@
 
     <!-- ===== Skills & Experience ===== -->
     <section class="section container" id="skills">
-      <h2 class="section__title"><span class="section__number">03.</span> Skills &amp; Experience</h2>
+      <h2 class="section__title reveal"><span class="section__number mono">03.</span> Skills &amp; Experience</h2>
 
       <div class="skills">
-        <div class="skills__group">
-          <h3 class="skills__heading">Languages</h3>
-          <ul class="skills__list">
+        <div class="skills__group reveal">
+          <h3 class="skills__heading"><span aria-hidden="true">⌨️</span> Languages</h3>
+          <ul class="skills__list mono">
             <li>Kotlin</li>
             <li>Java</li>
             <li>SQL</li>
           </ul>
         </div>
-        <div class="skills__group">
-          <h3 class="skills__heading">Android &amp; Frameworks</h3>
-          <ul class="skills__list">
+        <div class="skills__group reveal">
+          <h3 class="skills__heading"><span aria-hidden="true">🤖</span> Android &amp; Frameworks</h3>
+          <ul class="skills__list mono">
             <li>Android SDK</li>
             <li>Jetpack Compose</li>
             <li>ViewModel · Room · WorkManager</li>
@@ -143,9 +194,9 @@
             <li>Material Design</li>
           </ul>
         </div>
-        <div class="skills__group">
-          <h3 class="skills__heading">Tools &amp; Platforms</h3>
-          <ul class="skills__list">
+        <div class="skills__group reveal">
+          <h3 class="skills__heading"><span aria-hidden="true">🧰</span> Tools &amp; Platforms</h3>
+          <ul class="skills__list mono">
             <li>Android Studio</li>
             <li>Firebase</li>
             <li>SQLite</li>
@@ -159,21 +210,21 @@
       </div>
 
       <div class="timeline">
-        <div class="timeline__item">
+        <div class="timeline__item reveal">
           <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">April 2025 — Present</p>
+          <p class="timeline__date mono">April 2025 — Present</p>
           <h3 class="timeline__title">Junior Android Developer · Adhyay Infotech Pvt Ltd</h3>
           <p class="timeline__desc">Develop and maintain three production apps with 100k+ downloads and a 4.5+ rating. Own the full Android lifecycle including hardware integrations, work directly with clients on their requirements, and discuss and shape features with my manager and product team.</p>
         </div>
-        <div class="timeline__item">
+        <div class="timeline__item reveal">
           <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">Jan 2024 — April 2024</p>
+          <p class="timeline__date mono">Jan 2024 — April 2024</p>
           <h3 class="timeline__title">Android Developer Intern · Suraj Informatics Pvt Ltd</h3>
           <p class="timeline__desc">Built scanner-device applications for logistics and port clients including Adani, JSW, and Coromandel. Integrated APIs in Java for barcode and tag data transfer and performed thorough testing to ensure client satisfaction.</p>
         </div>
-        <div class="timeline__item">
+        <div class="timeline__item reveal">
           <div class="timeline__dot" aria-hidden="true"></div>
-          <p class="timeline__date">June 2020 — May 2024</p>
+          <p class="timeline__date mono">June 2020 — May 2024</p>
           <h3 class="timeline__title">B.Tech, Information Technology · Pillai College of Engineering</h3>
           <p class="timeline__desc">Graduated with a CGPA of 8.50.</p>
         </div>
@@ -182,18 +233,22 @@
 
     <!-- ===== Contact ===== -->
     <section class="section container section--center" id="contact">
-      <h2 class="section__title section__title--center"><span class="section__number">04.</span> Get In Touch</h2>
-      <p class="contact__text">I'm always open to discussing new opportunities, interesting projects, or anything Android. My inbox is always open — say hello!</p>
-      <div class="contact__actions">
+      <p class="contact__eyebrow mono reveal">04. What's Next?</p>
+      <h2 class="contact__heading reveal">Get In Touch</h2>
+      <p class="contact__text reveal">I'm always open to discussing new opportunities, interesting projects, or anything Android. My inbox is always open — say hello!</p>
+      <div class="contact__actions reveal">
         <a href="mailto:Yashtailor9287@gmail.com" class="btn btn--primary">Say Hello</a>
         <a href="assets/resume.pdf" class="btn btn--ghost" download="Resume_YashTailor.pdf">Download Resume</a>
       </div>
-      <div class="contact__socials">
+      <div class="contact__socials reveal">
         <a href="https://github.com/YashTaylor" class="social" aria-label="GitHub" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/yash-tailor-873aa4241/" class="social" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13.1H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-1-.8-1.7-1.8-1.7z"/></svg>
+        </a>
+        <a href="mailto:Yashtailor9287@gmail.com" class="social" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7L22 7"/></svg>
         </a>
       </div>
     </section>
@@ -202,8 +257,13 @@
 
   <!-- ===== Footer ===== -->
   <footer class="footer">
-    <p>© 2026 Yash Tailor. Built with plain HTML, CSS &amp; JS.</p>
+    <p class="mono">Designed &amp; built by Yash Tailor · © 2026</p>
   </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 
   <script src="js/main.js"></script>
 </body>

@@ -21,7 +21,11 @@ All placeholder text is wrapped in `[square brackets]` and marked with `<!-- TOD
 
 ## Changing the theme
 
-All colors live as CSS custom properties at the top of `css/style.css` (`:root` block). Change `--accent` to instantly retheme the site.
+All colors live as CSS custom properties at the top of `css/style.css` (`:root` block). Change `--accent` (and `--accent-2` for gradients) to instantly retheme the site. Fonts are Inter + JetBrains Mono, loaded from Google Fonts.
+
+## Interactions
+
+All in `js/main.js`, no libraries: typing-effect hero, animated stat counters, cursor spotlight, 3D-tilt project cards with cursor-tracking glow, staggered scroll reveals, scroll progress bar, hide-on-scroll nav, and a back-to-top button. Everything degrades gracefully under `prefers-reduced-motion` and on touch devices.
 
 ## Running locally
 
