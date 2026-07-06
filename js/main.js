@@ -21,6 +21,9 @@ navMenu.addEventListener('click', (e) => {
 const nav = document.getElementById('nav');
 const progress = document.getElementById('progress');
 const toTop = document.getElementById('to-top');
+const timeline = document.querySelector('.timeline');
+const orb1 = document.querySelector('.hero__orb--1');
+const orb2 = document.querySelector('.hero__orb--2');
 let lastY = window.scrollY;
 let ticking = false;
 
@@ -37,6 +40,20 @@ function onScroll() {
     nav.classList.toggle('nav--hidden', y > lastY && y > 200);
   }
   lastY = y;
+
+  if (!prefersReducedMotion) {
+    // hero orbs drift slower than the page (parallax)
+    if (y < window.innerHeight) {
+      orb1.style.translate = `0 ${y * 0.18}px`;
+      orb2.style.translate = `0 ${y * 0.1}px`;
+    }
+    // fill the timeline line as it scrolls through the viewport
+    if (timeline) {
+      const rect = timeline.getBoundingClientRect();
+      const t = (window.innerHeight * 0.75 - rect.top) / rect.height;
+      timeline.style.setProperty('--tl', Math.min(Math.max(t, 0), 1));
+    }
+  }
   ticking = false;
 }
 
@@ -204,4 +221,165 @@ if (hasFinePointer && !prefersReducedMotion) {
       card.style.transform = '';
     });
   });
+}
+
+// ===== Theme toggle =====
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', () => {
+  const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
+  refreshParticleColor();
+});
+
+// ===== Custom cursor =====
+if (hasFinePointer && !prefersReducedMotion) {
+  document.documentElement.classList.add('custom-cursor');
+  const dot = document.getElementById('cursor');
+  const ring = document.getElementById('cursor-ring');
+  let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+  let rx = mx, ry = my;
+
+  window.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.translate = `${mx}px ${my}px`;
+  }, { passive: true });
+
+  (function followCursor() {
+    rx += (mx - rx) * 0.16;
+    ry += (my - ry) * 0.16;
+    ring.style.translate = `${rx}px ${ry}px`;
+    requestAnimationFrame(followCursor);
+  })();
+
+  document.querySelectorAll('a, button, [data-tilt]').forEach((el) => {
+    el.addEventListener('mouseenter', () => ring.classList.add('cursor-ring--hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('cursor-ring--hover'));
+  });
+}
+
+// ===== Magnetic elements =====
+if (hasFinePointer && !prefersReducedMotion) {
+  document.querySelectorAll('.btn, .social, .theme-toggle, .nav__logo, .to-top').forEach((el) => {
+    const strength = el.classList.contains('btn') ? 0.22 : 0.35;
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * strength;
+      const y = (e.clientY - r.top - r.height / 2) * strength;
+      el.style.translate = `${x}px ${y}px`;
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.translate = '';
+    });
+  });
+}
+
+// ===== Hero particle constellation =====
+const canvas = document.getElementById('particles');
+let particleColor = '#4fd1c5';
+
+function refreshParticleColor() {
+  particleColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#4fd1c5';
+}
+refreshParticleColor();
+
+if (canvas && hasFinePointer && !prefersReducedMotion) {
+  const ctx = canvas.getContext('2d');
+  const hero = canvas.parentElement;
+  let particles = [];
+  let running = false;
+  let rafId = null;
+  const mouse = { x: -9999, y: -9999 };
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = hero.offsetWidth * dpr;
+    canvas.height = hero.offsetHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = Math.min(70, Math.floor((hero.offsetWidth * hero.offsetHeight) / 22000));
+    particles = Array.from({ length: count }, (_, i) => ({
+      // deterministic-ish spread using index; velocity from a simple hash
+      x: ((i * 137.5) % hero.offsetWidth),
+      y: ((i * 89.7) % hero.offsetHeight),
+      vx: (((i * 7) % 10) - 5) / 22,
+      vy: (((i * 13) % 10) - 5) / 22,
+    }));
+  }
+
+  function step() {
+    if (!running) return;
+    const w = hero.offsetWidth, h = hero.offsetHeight;
+    ctx.clearRect(0, 0, w, h);
+
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+
+      // gentle push away from the cursor
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist < 110 && dist > 0.01) {
+        p.x += (dx / dist) * 0.6;
+        p.y += (dy / dist) * 0.6;
+      }
+
+      ctx.globalAlpha = 0.55;
+      ctx.fillStyle = particleColor;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // connect nearby particles
+    ctx.strokeStyle = particleColor;
+    ctx.lineWidth = 0.6;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < 120) {
+          ctx.globalAlpha = (1 - d / 120) * 0.22;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.globalAlpha = 1;
+    rafId = requestAnimationFrame(step);
+  }
+
+  function setRunning(on) {
+    if (on && !running) {
+      running = true;
+      step();
+    } else if (!on && running) {
+      running = false;
+      if (rafId) cancelAnimationFrame(rafId);
+    }
+  }
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  });
+
+  window.addEventListener('resize', resize);
+  document.addEventListener('visibilitychange', () => setRunning(!document.hidden));
+  // only animate while the hero is on screen
+  new IntersectionObserver((entries) => setRunning(entries[0].isIntersecting))
+    .observe(hero);
+
+  resize();
 }
