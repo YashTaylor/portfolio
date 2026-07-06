@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TODO: Update the title and description with your own -->
+  <title>Yash Tailor — Portfolio</title>
+  <meta name="description" content="[One-line description of who you are and what you do]">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="top">
+    <div class="nav__inner container">
+      <a href="#top" class="nav__logo">Yash<span class="accent">.</span></a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Hi, my name is</p>
+        <!-- TODO: Your name -->
+        <h1 class="hero__title">Yash Tailor<span class="accent">.</span></h1>
+        <!-- TODO: Your role/tagline, e.g. "I build Android apps." -->
+        <h2 class="hero__subtitle">[Your role or tagline goes here]</h2>
+        <!-- TODO: One or two sentences about what you do -->
+        <p class="hero__text">[A short intro — what you build, what you care about, and what you're looking for. Keep it to 1–2 sentences.]</p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--ghost">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section container" id="about">
+      <h2 class="section__title"><span class="section__number">01.</span> About Me</h2>
+      <div class="about">
+        <div class="about__text">
+          <!-- TODO: Your bio, 2–3 short paragraphs -->
+          <p>[Your bio here — 2–3 sentences about your background, what got you into development, and what you enjoy building.]</p>
+          <p>[Second paragraph — what you're currently working on or learning, and what kind of opportunities interest you.]</p>
+        </div>
+        <div class="about__photo">
+          <!-- TODO: Replace with your photo: <img src="assets/photo.jpg" alt="Yash Tailor"> -->
+          <div class="about__photo-placeholder" aria-hidden="true">YT</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section container" id="projects">
+      <h2 class="section__title"><span class="section__number">02.</span> Projects</h2>
+      <div class="projects">
+
+        <!-- TODO: Project 1 — replace title, description, tags, and links -->
+        <article class="card">
+          <div class="card__image" aria-hidden="true">
+            <!-- TODO: Replace with a screenshot: <img src="assets/project1.png" alt="Project 1 screenshot"> -->
+            <span>📱</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">[Project One Name]</h3>
+            <p class="card__desc">[What the project does, the problem it solves, and anything notable about how you built it.]</p>
+            <ul class="card__tags">
+              <li>[Tech 1]</li>
+              <li>[Tech 2]</li>
+              <li>[Tech 3]</li>
+            </ul>
+            <div class="card__links">
+              <a href="#" class="card__link">GitHub</a>
+              <a href="#" class="card__link">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TODO: Project 2 -->
+        <article class="card">
+          <div class="card__image" aria-hidden="true"><span>🛠️</span></div>
+          <div class="card__body">
+            <h3 class="card__title">[Project Two Name]</h3>
+            <p class="card__desc">[What the project does, the problem it solves, and anything notable about how you built it.]</p>
+            <ul class="card__tags">
+              <li>[Tech 1]</li>
+              <li>[Tech 2]</li>
+            </ul>
+            <div class="card__links">
+              <a href="#" class="card__link">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TODO: Project 3 -->
+        <article class="card">
+          <div class="card__image" aria-hidden="true"><span>🚀</span></div>
+          <div class="card__body">
+            <h3 class="card__title">[Project Three Name]</h3>
+            <p class="card__desc">[What the project does, the problem it solves, and anything notable about how you built it.]</p>
+            <ul class="card__tags">
+              <li>[Tech 1]</li>
+              <li>[Tech 2]</li>
+            </ul>
+            <div class="card__links">
+              <a href="#" class="card__link">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Skills & Experience ===== -->
+    <section class="section container" id="skills">
+      <h2 class="section__title"><span class="section__number">03.</span> Skills &amp; Experience</h2>
+
+      <div class="skills">
+        <!-- TODO: Replace skill groups and badges with your own -->
+        <div class="skills__group">
+          <h3 class="skills__heading">Languages</h3>
+          <ul class="skills__list">
+            <li>[Language 1]</li>
+            <li>[Language 2]</li>
+            <li>[Language 3]</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3 class="skills__heading">Frameworks &amp; Libraries</h3>
+          <ul class="skills__list">
+            <li>[Framework 1]</li>
+            <li>[Framework 2]</li>
+          </ul>
+        </div>
+        <div class="skills__group">
+          <h3 class="skills__heading">Tools</h3>
+          <ul class="skills__list">
+            <li>[Tool 1]</li>
+            <li>[Tool 2]</li>
+            <li>[Tool 3]</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <!-- TODO: Experience/education entry 1 -->
+        <div class="timeline__item">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <p class="timeline__date">[2024 — Present]</p>
+          <h3 class="timeline__title">[Role or Degree] · [Company or School]</h3>
+          <p class="timeline__desc">[One or two lines about what you did or studied and what you achieved.]</p>
+        </div>
+        <!-- TODO: Experience/education entry 2 -->
+        <div class="timeline__item">
+          <div class="timeline__dot" aria-hidden="true"></div>
+          <p class="timeline__date">[2021 — 2024]</p>
+          <h3 class="timeline__title">[Role or Degree] · [Company or School]</h3>
+          <p class="timeline__desc">[One or two lines about what you did or studied and what you achieved.]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section container section--center" id="contact">
+      <h2 class="section__title section__title--center"><span class="section__number">04.</span> Get In Touch</h2>
+      <!-- TODO: A short closing line inviting people to reach out -->
+      <p class="contact__text">[A friendly line inviting people to reach out — e.g. "I'm currently open to new opportunities. My inbox is always open!"]</p>
+      <div class="contact__actions">
+        <!-- TODO: Replace with your real email -->
+        <a href="mailto:your.email@example.com" class="btn btn--primary">Say Hello</a>
+        <!-- TODO: Add your resume PDF at assets/resume.pdf -->
+        <a href="assets/resume.pdf" class="btn btn--ghost" download>Download Resume</a>
+      </div>
+      <div class="contact__socials">
+        <!-- TODO: Replace # with your GitHub profile URL -->
+        <a href="#" class="social" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.3 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+        </a>
+        <!-- TODO: Replace # with your LinkedIn profile URL -->
+        <a href="#" class="social" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13.1H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-1-.8-1.7-1.8-1.7z"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p>© 2026 Yash Tailor. Built with plain HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
