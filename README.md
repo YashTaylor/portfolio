@@ -19,13 +19,19 @@ All placeholder text is wrapped in `[square brackets]` and marked with `<!-- TOD
 | GitHub / LinkedIn URLs | Social icon links in the Contact section |
 | Resume | Drop your PDF at `assets/resume.pdf` |
 
-## Changing the theme
+## Theme — "The Traveler's Road"
 
-All colors live as CSS custom properties at the top of `css/style.css` (`:root` block). Change `--accent` (and `--accent-2` for gradients) to instantly retheme the site. Fonts are Inter + JetBrains Mono, loaded from Google Fonts.
+A Japanese-animated-film-inspired world: the sky shifts from sunset to moonlit night as you scroll, sakura petals drift, birds cross the sky by day, and fireflies and lanterns glow at night. All scenery is inline SVG/CSS/canvas — zero image assets besides the photo and resume. The previous dark developer theme is preserved on the `dark-theme` git branch.
 
-## Interactions
+All colors live as CSS custom properties at the top of `css/style.css` (`:root` block). Fonts: Shippori Mincho + Zen Kaku Gothic New (Google Fonts).
 
-All in `js/main.js`, no libraries: typing-effect hero, animated stat counters, cursor spotlight, 3D-tilt project cards with cursor-tracking glow, staggered scroll reveals, scroll progress bar, hide-on-scroll nav, and a back-to-top button. Everything degrades gracefully under `prefers-reduced-motion` and on touch devices.
+## Interactions & systems
+
+- `js/main.js` — sky crossfade + `--night` variable, cinematic hero name reveal, role crossfade, stat counters, staggered reveals, timeline fill, nav/progress/back-to-top
+- `js/ambient.js` — shared canvas: sakura petals (always), bird flocks (day), fireflies (night)
+- `js/audio.js` — optional ambience synthesized with the Web Audio API (wind + fūrin chimes on the Hirajoshi scale), muted by default, toggle at bottom-left
+
+Everything degrades gracefully under `prefers-reduced-motion` and on touch devices.
 
 ## Running locally
 
