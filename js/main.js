@@ -1,8 +1,8 @@
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-// shared night value (0 sunset → 1 night) — ambient.js reads this
-window.NIGHT = 0;
+// always night — ambient.js reads this
+window.NIGHT = 1;
 
 // ===== Mobile menu toggle =====
 const navToggle = document.getElementById('nav-toggle');
@@ -19,12 +19,10 @@ navMenu.addEventListener('click', (e) => {
   if (e.target.closest('a')) setMenu(false);
 });
 
-// ===== Scroll: progress, nav, sky crossfade, parallax, timeline fill =====
+// ===== Scroll: progress, nav, parallax, timeline fill =====
 const nav = document.getElementById('nav');
 const progress = document.getElementById('progress');
 const toTop = document.getElementById('to-top');
-const skyDusk = document.getElementById('sky-dusk');
-const skyNight = document.getElementById('sky-night');
 const timeline = document.querySelector('.timeline');
 const parallaxEls = document.querySelectorAll('[data-parallax]');
 let lastY = window.scrollY;
@@ -45,16 +43,6 @@ function onScroll() {
     nav.classList.toggle('nav--hidden', y > lastY && y > 200);
   }
   lastY = y;
-
-  // sky: sunset → dusk (p 0.20–0.55) → night (p 0.55–0.85)
-  skyDusk.style.opacity = clamp01((p - 0.2) / 0.35);
-  const night = clamp01((p - 0.55) / 0.3);
-  skyNight.style.opacity = night;
-
-  if (Math.abs(night - window.NIGHT) > 0.005) {
-    window.NIGHT = night;
-    document.body.style.setProperty('--night', night.toFixed(3));
-  }
 
   if (!prefersReducedMotion) {
     if (y < window.innerHeight) {
